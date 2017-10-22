@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
-var controller = require('../db.js');
+var controller = require('../../db.js');
 
 router.post('/', function(req, res){
 	console.log(req.body);
