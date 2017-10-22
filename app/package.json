@@ -1,0 +1,27 @@
+{
+  "name": "league",
+  "version": "0.0.1",
+  "description": "league manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha run-tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roncodingenthusiast/league.git"
+  },
+  "keywords": [
+    "league",
+    "management",
+    "sports"
+  ],
+  "author": "RONALD EKAMBI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roncodingenthusiast/league/issues"
+  },
+  "homepage": "https://github.com/roncodingenthusiast/league#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
