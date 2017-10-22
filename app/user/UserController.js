@@ -18,9 +18,8 @@ router.post('/', function(req, res){
 				console.log(err);
 				return res.status(500).send("There was a problem adding the information to the database.");
 			}
-				
-
-			 res.status(200).send(user);
+			res.status(200).send(user);
+			connection.release();
 		});
 	});
 });
@@ -37,10 +36,66 @@ router.get('/', function (req, res) {
 	        	connection.release();
 	        	return res.status(500).send("There was a problem finding the users.");
 	        }
+	        console.log(users);
 	        res.status(200).send(users);
+	        connection.release();
 	    });
+
 	});
     
 });
 
+router.get('/:id', function(req, res){
+	controller.conn.getConnection(function(err, connection){
+		console.log(req.params.id);
+		var postData = {
+			id : req.params.id
+		};
+		connection.query('select * from users where id='+req.params.id, function (err, users) {
+	        if (err) {
+	        	console.log(err);
+	        	connection.release();
+	        	return res.status(500).send("There was a problem finding the users.");
+	        }
+	        res.status(200).send(users);
+	        connection.release();
+	    });
+	});
+});
+
+router.delete('/:id', function(req, res){
+	controller.conn.getConnection(function(err, connection){
+		console.log(req.params.id);
+		var postData = {
+			id : req.params.id
+		};
+		connection.query('delete from users where id='+req.params.id, function (err, users) {
+	        if (err) {
+	        	console.log(err);
+	        	connection.release();
+	        	return res.status(500).send("There was a problem finding the users.");
+	        }
+	        res.status(200).send(users);
+	        connection.release();
+	    });
+	});
+});
+
+router.put('/:id', function(req, res){
+	controller.conn.getConnection(function(err, connection){
+		console.log(req.params.id);
+		var postData = {
+			name: 'update'
+		};
+		connection.query('update users set ? where id='+req.params.id, postData, function (err, users) {
+	        if (err) {
+	        	console.log(err);
+	        	connection.release();
+	        	return res.status(500).send("There was a problem finding the users.");
+	        }
+	        res.status(200).send(users);
+	        connection.release();
+	    });
+	});
+});
 module.exports = router;
