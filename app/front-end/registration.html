@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>UFO Soccer League</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    
+    <div class="container-fluid">
+      <!--navbar begins-->
+      <div class="row">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img alt="Brand" id="img-brand-ufo" src="img/ufo-logo.png" class="img-responsive">
+              </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li ><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#">Registration Form</a></li>
+                <li><a href="#">Contact Info</a></li>
+                <li><a href="fieldlocation.html">Field Location</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Leagues <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="thursday.html">Thursday League</a></li>
+                    <li><a href="schedule.html">Saturday League</a></li>
+                  </ul>
+                </li>
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="schedule.html">Summer Soccer League</a></li>
+                    <li><a href="schedule.html">Thursday League</a></li>
+                    <li><a href="schedule.html">Saturday League</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">All Men</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">All Women</a></li>
+                  </ul>
+                </li>  -->
+              </ul>
+              <!--<ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+              </ul>-->
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+      <!--navbar ends-->
+      <!--main body starts-->
+      <div class="container">
+          <div class="row">
+            <h1>Player Registration Form</h1>
+          </div>
+          <div class="row">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">First Name</label>
+                <input type="text" class="form-control" placeholder="first name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Last Name</label>
+                <input type="text" class="form-control" placeholder="last name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Home Address</label>
+                <input type="text" class="form-control" placeholder="1000 HOME STREET">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Postal Code</label>
+                <input type="text" class="form-control" placeholder="A1AA2A">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Telephone</label>
+                <input type="text" class="form-control" placeholder="(613) 111-1111">
+              </div>
+              <div class="radio">
+              Returning player?*
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Yes
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> No
+                </label>
+              </div>
+              <div class="radio">
+              Do you agree with condition
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptionss" id="inlineRadio1" value="option1"> Yes
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptionss" id="inlineRadio2" value="option2"> No
+                </label>
+              </div>
+              <select multiple class="form-control">
+                <option>Saturday League</option>
+                <option>Thursday League</option>
+              </select>
+              <div class="form-group">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </form>
+          </div>
+      </div>
+      <!--main body ends-->
+      <!--footer starts-->
+        <div class="row text-center" id="footer" style="background-color:#dd3333; padding-top:20px;">
+          
+          <div class="col-sm-12 vcenter" style="" id="pre-footer">
+            <a href="#"><button type="button" class="btn btn-default btn-circle btn-xl"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></button></a>
+            <a href="https://www.facebook.com/UFOSoccerLeague/"><button type="button" class="btn btn-default btn-circle btn-xl"><i class="fa fa-facebook-f fa-2x" aria-hidden="true"></i></button></a>
+            <button type="button" class="btn btn-default btn-circle btn-xl"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-default btn-circle btn-xl"><i class="fa fa-pinterest-p fa-2x" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-default btn-circle btn-xl"><i class="fa fa-mobile fa-2x" aria-hidden="true"></i></button>  
+          </div>
+          <!--copyright footer side-->
+          <div class="col-sm-12 text-center" style="background-color: #333; color:white; min-height:40px;">
+            &copy Copyright 2016, UFO<br>            
+            Built By <a href="http://ronaldekambi.ca/" target="_blank" class="ufo-text-red">Code Bender</a>
+            
+          </div>
+          <!--end of copyright-->
+        </div>
+        <!--footer ends-->
+    </div>
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--CDN CALLBACK FAILS--> 
+    <script>window.jQuery || document.write('<script src="/js/jquery-1.11.3.min.js"><\/script>')</script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script>window.jQuery.fn.modal || document.write('<script src="/js/bootstrap.min.js"><\/script>')</script>
+    <script>
+    (function($) {
+        $(function() {
+            if ($('body').css('color') !== 'rgb(51, 51, 51)') {
+                $('head').prepend('<link rel="stylesheet" href="/css/bootstrap.min.css">');
+            }
+        });
+    })(window.jQuery);
+    </script>
+  </body>
+
+</html>
