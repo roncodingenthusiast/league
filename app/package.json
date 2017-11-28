@@ -23,6 +23,7 @@
   "homepage": "https://github.com/roncodingenthusiast/league#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "mysql": "^2.15.0"
