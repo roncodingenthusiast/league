@@ -92,6 +92,7 @@ router.put('/:id', function(req, res){
 	        	console.log(err);
 	        	connection.release();
 	        	return res.status(500).send("There was a problem finding the teams.");
+			//TODO: use express' next to handle error
 	        }
 	        res.status(200).send(teams);
 	        connection.release();
