@@ -4,7 +4,7 @@
   "description": "league manager",
   "main": "app.js",
   "scripts": {
-    "test": "mocha run-tests"
+    "test": "mocha test/"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,11 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
     "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "request": "^2.83.0",
+    "supertest": "^3.0.0"
   }
 }
