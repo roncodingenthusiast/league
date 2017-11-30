@@ -31,6 +31,8 @@
     "mysql": "^2.15.0"
   },
   "devDependencies": {
+    "jscs": "^3.0.7",
+    "jshint": "^2.9.5",
     "request": "^2.83.0",
     "supertest": "^3.0.0"
   }
