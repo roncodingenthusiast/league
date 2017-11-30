@@ -4,7 +4,7 @@
   "description": "league manager",
   "main": "app.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test PORT=8080 mocha test/"
+    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=league_manager_pro DB_USER=root mocha test/"
   },
   "repository": {
     "type": "git",
