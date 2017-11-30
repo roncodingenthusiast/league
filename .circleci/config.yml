@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
+      - image: mysql/mysql-server:5.6
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -35,6 +36,3 @@ jobs:
         
       # run tests!
       - run: npm test
-
-
-
