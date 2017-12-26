@@ -5,9 +5,9 @@ app.config(function($routeProvider){
 		templateUrl: 'public/templates/home.html',
 		controller: 'mainCtrl'
 	})
-	.when('/teams',{
-		templateUrl: 'public/templates/teams.html', 
-		controller: 'listOfRecipesCtrl'
+	.when('/teams/new',{
+		templateUrl: 'public/templates/teams/new-team.html', 
+		controller: 'teamsCtrl'
 	})
 	//if the route is not recognised then it redirects you to home page
 	.otherwise({

@@ -8,6 +8,7 @@
 		<!--references below-->
 		<!-- Bootstrap included here to get responsive design and cross platform experience -->
 		<!--font awesome icons-->
+		<link rel="stylesheet" type="text/css" href="bootstrap-css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<!-- HTML5shiv and Respond.js to support internet explorer 8. -->
 		<!--[if lt IE 9]>
@@ -20,17 +21,15 @@
 
 		<script type="text/javascript" src="public/app.js"></script>
 		<script type="text/javascript" src="public/controllers/maincontroller.js"></script>
+		<script type="text/javascript" src="public/controllers/teamscontroller.js"></script>
 		<!--load config after all other file since it uses the other files-->
 		<script type="text/javascript" src="public/config/config.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="bootstrap-js/bootstrap.min.js"></script>
 	</head>			
 	<body>
-		<i class="fa fa-address-book" aria-hidden="true"></i>
-		<div class="container" ng-view>
-		  
-		</div>
+		<div class="container" ng-view></div>
 	</body>
 </html>

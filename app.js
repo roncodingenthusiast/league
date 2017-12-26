@@ -3,7 +3,8 @@ var app = express();
 var db = require('./db');
 
 app.use('/public', express.static(__dirname + '/public'));
-app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use('/bootstrap-js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
+app.use('/bootstrap-css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/node_modules/font-awesome/css'));
 app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts'));
 
