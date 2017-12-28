@@ -3,11 +3,11 @@
 	<form name="teamForm" novalidate>
         <div class="form-group">
             <label>Team Name</label>
-            <input type="text" name="teamname" class="form-control" ng-model="team.name" required>
+            <input type="text" name="teamname" class="form-control" ng-model="teamToSave.name" required>
 		</div>
 		<div class="form-group">
             <label>Skill Level</label>
-			<select class="form-control" ng-model="team.level">
+			<select class="form-control" ng-model="teamToSave.level">
 				<option value="1">Beginner / Recreational</option>
 				<option value="2">Recreational</option>
 				<option value="3">Recreational / Intermediate</option>
@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <label>League</label>
-            <select class="form-control" ng-model="team.league">
+            <select class="form-control" ng-model="teamToSave.league">
 				<option value="monday-league">Monday League</option>
 				<option value="Tuesday League">Tuesday League</option>
 				<option value="Friday League">Friday league</option>
@@ -29,10 +29,21 @@
 
         <div class="form-group">
             <label>Captain's Email</label>
-            <input type="email" name="email" class="form-control" ng-model="team.captainemail">
+            <input type="email" name="email" class="form-control" ng-model="teamToSave.captainemail">
+		</div>
+		
+		<div class="form-group">
+            <label>Color</label>
+            <select class="form-control" ng-model="teamToSave.color">
+				<option value="blue">Blue</option>
+				<option value="red">Red</option>
+				<option value="yellow">yellow</option>
+				<option value="white">white</option>
+				<option value="black">black</option>
+			</select>
         </div>
 
-        <button type="submit" class="btn btn-primary" ng-click="saveTeam(team)">Submit</button>
+        <button type="submit" class="btn btn-primary" ng-click="saveTeam(teamToSave)">Submit</button>
 		<button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
     </form>
 
