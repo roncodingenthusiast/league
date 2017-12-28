@@ -1,0 +1,66 @@
+<div class="col-sm-8 col-sm-offset-2">
+		<div class="page-header"><h1>Create League</h1></div>
+		<form name="teamForm" novalidate>
+			<div class="form-group">
+				<label>League Name</label>
+				<input type="text" name="leaguename" class="form-control" ng-model="leagueToSave.leaguename" required>
+			</div>
+			<div class="form-group">
+				<label>Location</label>
+				<input type="text" name="location" class="form-control" ng-model="leagueToSave.location" required>
+			</div>
+			<div class="form-group">
+				<label>Price</label>
+				<input type="text" name="price" class="form-control" ng-model="leagueToSave.price" required>
+			</div>
+			<div class="form-group">
+				<label>Game Length (minutes)</label>
+				<input type="text" name="gamelength" class="form-control" ng-model="leagueToSave.gamelength" required>
+			</div>
+			<div class="form-group">
+				<label>Date Start</label>
+				<input type="text" name="dateStart" class="form-control" ng-model="leagueToSave.dateStart">
+			</div>
+			<div class="form-group">
+					<label>Date End</label>
+					<input type="text" name="dateEnd" class="form-control" ng-model="leagueToSave.dateEnd">
+			</div>
+			<div class="form-group">
+				<label>Skill Level</label>
+				<select class="form-control" ng-model="leagueToSave.level">
+					<option value="1">Beginner / Recreational</option>
+					<option value="2">Recreational</option>
+					<option value="3">Recreational / Intermediate</option>
+					<option value="4">Intermediate/ Advanced</option>
+					<option value="5">Advanced / Expert</option>
+				</select>
+			</div>
+	
+			<div class="form-group">
+				<label>Day</label>
+				<select class="form-control" ng-model="leagueToSave.day">
+					<option value="monday">Monday</option>
+					<option value="tuesday">Tuesday</option>
+					<option value="wednesday">Wednesday</option>
+					<option value="thursday">Thursday</option>
+					<option value="friday">Friday</option>
+					<option value="saturday">Saturday</option>
+					<option value="sunday">Sunday</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Color</label>
+				<select class="form-control" ng-model="leagueToSave.color">
+					<option value="blue">Blue</option>
+					<option value="red">Red</option>
+					<option value="yellow">yellow</option>
+					<option value="white">white</option>
+					<option value="black">black</option>
+				</select>
+			</div>
+	
+			<button type="submit" class="btn btn-primary" ng-click="saveLeague(leagueToSave)">Submit</button>
+			<button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
+		</form>
+	
+	</div>
