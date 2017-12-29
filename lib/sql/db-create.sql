@@ -39,3 +39,14 @@ CREATE TABLE `users` (
   `email` varchar(222) NOT NULL,
   `password` varchar(222) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table players
+(
+	id integer primary key AUTO_INCREMENT,
+    name text,
+    age integer,
+    team_id integer,
+    FOREIGN key(`team_id`) 
+    	REFERENCES teams(`id`)
+    	on delete CASCADE
+);

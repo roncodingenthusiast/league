@@ -2,12 +2,13 @@
 	list is here 
 	<div ng-repeat="team in teams">
 			<p class="bg-primary">
+				<a id="team-link" ng-href="#/team/{{ team.id }}/players/list"> Id: {{ team.id }}</a> <br>
 				Team: {{team.teamname}} <br>
 				Color: {{team.color}} <br>
 				captainEmail: {{team.captainemail}} <br>
 				league: {{team.league}}<br>
-				level: {{team.level}}
+				level: {{team.level}} <br> 
+				<a id="team-link" ng-href="#/team/{{ team.id }}/players/new"> Add a player</a> <br>
 			</p>
-		
 	</div>
 </div>

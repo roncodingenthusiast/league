@@ -1,12 +1,7 @@
-app.controller('teamsCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
-	var config = {
-		headers: { 
-			'Content-Type': 'application/x-www-form-urlencoded' 
-		}
-	};
+app.controller('teamsCtrl', ['$scope', '$http', '$location', 'HeadersConfig', function($scope, $http, $location, HeadersConfig){
 	$scope.teams = [];
 	$scope.queryAllTeams = function() {
-		$http.get('/teams', config)
+		$http.get('/teams', HeadersConfig.getConfig())
 		.then(
 			function success(response){
 				$scope.teams = response.data;
@@ -20,7 +15,7 @@ app.controller('teamsCtrl', ['$scope', '$http', '$location', function($scope, $h
 	
     $scope.saveTeam = function(submittedTeam) {
 		$scope.teamToSave = angular.copy(submittedTeam);
-		$http.post('/teams', $.param($scope.teamToSave), config)
+		$http.post('/teams', $.param($scope.teamToSave), HeadersConfig.getConfig())
 		.then(
 			function success(data){
 				$location.path('/teams/list');
@@ -30,9 +25,7 @@ app.controller('teamsCtrl', ['$scope', '$http', '$location', function($scope, $h
 			}
 		);
     };
-	$scope.resetForm = function() {
-		$scope.teamToSave = angular.copy({});
-	};
-	$scope.resetForm();
+	
+	$scope.teamToSave = HeadersConfig.resetForm();
 	$scope.queryAllTeams();
 }]);

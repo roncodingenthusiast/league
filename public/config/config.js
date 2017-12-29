@@ -20,6 +20,16 @@ app.config(function($routeProvider){
 		templateUrl: 'public/templates/leagues/new.html', 
 		controller: 'leagueCtrl'
 	})
+
+	//players
+	.when('/team/:id/players/list', {
+		templateUrl: 'public/templates/players/list.html', 
+		controller: 'playersCtrl'
+	})
+	.when('/team/:id/players/new', {
+		templateUrl: 'public/templates/players/new.html', 
+		controller: 'playersCtrl'
+	})
 	//if the route is not recognised then it redirects you to home page
 	.otherwise({
 		redirecTo: '/'
