@@ -9,7 +9,7 @@ app.controller('teamsCtrl', ['$scope', '$http', '$location', 'HeadersConfig', fu
 		.then(
 			function success(response){
 				$scope.teams = response.data;
-				var teamsId = [];
+				$scope.games = {};
 				if($scope.teams.length % 2 !== 0){
 					$scope.teams.push({
 						id: 'bye',
@@ -21,12 +21,6 @@ app.controller('teamsCtrl', ['$scope', '$http', '$location', 'HeadersConfig', fu
 					});
 					//https://en.wikipedia.org/wiki/Round-robin_tournament
 				}
-				$scope.teams.forEach(function(element) {
-					teamsId.push(element.id);
-					element.opponents = [];
-				});
-				console.log(teamsId);
-				console.log($scope.teams);
 			},
 			function failed(err){
 

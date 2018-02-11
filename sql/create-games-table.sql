@@ -1,0 +1,1 @@
+CREATE TABLE `league_manager_pro`.`games` ( `date_time` DATETIME NOT NULL , `home_team_id` INT NOT NULL , `away_team_id` INT NOT NULL , `home_team_score` INT NOT NULL , `away_team_score` INT NOT NULL , `league_id` INT NOT NULL , `field_id` INT NOT NULL , `location` INT NOT NULL , `game_type` INT NOT NULL , `Status` INT NOT NULL ) ENGINE = InnoDB;
