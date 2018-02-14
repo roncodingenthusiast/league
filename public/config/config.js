@@ -14,7 +14,11 @@ app.config(function($routeProvider){
 		templateUrl: 'public/templates/teams/list.html', 
 		controller: 'teamsCtrl'
 	})
-
+	//schedule/games
+	.when('/schedule', {
+		templateUrl: 'public/templates/games/list.html',
+		controller: 'gamesCtrl'
+	})
 	//league 
 	.when('/league/new',{
 		templateUrl: 'public/templates/leagues/new.html', 
