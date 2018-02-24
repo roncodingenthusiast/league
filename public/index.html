@@ -106,6 +106,9 @@
 						color: #fff;
 						transition: all 0.3s;
 					}
+					#sidebar-container {
+						background: #7386D5;
+					}
 			
 					#sidebar .sidebar-header {
 						padding: 20px;
@@ -144,109 +147,75 @@
 				</style>
 	</head>
 	<body>
-		<div class="container-fuild">
-			<!-- Sidebar -->
-			<nav id="sidebar" class="col-sm-3">
-					<!-- Sidebar Header -->
-					<div class="sidebar-header">
-						<h3>Collapsible Sidebar</h3>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 hidden-xs" id="sidebar-container">
+					<!-- Sidebar -->
+					<nav id="sidebar" class="col-md-12">
+							<!-- Sidebar Header -->
+							<div class="sidebar-header">
+								<h3>Collapsible Sidebar</h3>
+						</div>
+				
+						<!-- Sidebar Links -->
+						<ul class="list-unstyled components">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="#">About</a></li>
+				
+							<li><!-- Link with dropdown items -->
+								<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+								<ul class="collapse list-unstyled" id="homeSubmenu">
+									<li><a href="#">Page</a></li>
+									<li><a href="#">Page</a></li>
+									<li><a href="#">Page</a></li>
+								</ul>
+				
+							<li><a href="#">Portfolio</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</nav>
 				</div>
-		
-				<!-- Sidebar Links -->
-				<ul class="list-unstyled components">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-		
-					<li><!-- Link with dropdown items -->
-						<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-						<ul class="collapse list-unstyled" id="homeSubmenu">
-							<li><a href="#">Page</a></li>
-							<li><a href="#">Page</a></li>
-							<li><a href="#">Page</a></li>
-						</ul>
-		
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-			<!-- Page Content -->
-			<div id="content" class="col-sm-9">
-				<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-						Menu
-				</button>
-			</div>
-		</div>
-	</body>		
-	<!-- <body>
-
-		<!-- <div class="row">
-			<nav class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<li><a href="#/">Home</a></li>
-							<li><a href="#/">League info</a></li>
-							<li><a href="#/">Schedule</a></li>
-							<li><a href="#/">Standings and Stats</a></li>
-							<li><a href="#/">Rules</a></li>
-							<li><a href="#/">Partners</a></li>
-							<li><a href="#/">Contact Us</a></li>
-							<li><a href="#/teams/new">Register A Team</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#/teams/list">Teams</a></li>
-							<li><a href="#/">Admin</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-		<div class="container-fluid wrapper">
-
-			<!-- Sidebar -->
-			<!--<nav id="sidebar" class="col-sm-3">
-					<!-- Sidebar Header -->
-					<!--<<div class="sidebar-header">
-						<h3>Collapsible Sidebar</h3>
-				</div>
-		
-				<!-- Sidebar Links -->
-				<!--<<ul class="list-unstyled components">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-		
-					<li><!-- Link with dropdown items -->
-						<!--<<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-						<ul class="collapse list-unstyled" id="homeSubmenu">
-							<li><a href="#">Page</a></li>
-							<li><a href="#">Page</a></li>
-							<li><a href="#">Page</a></li>
-						</ul>
-		
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-		
-			<!-- Page Content -->
-			<!--<<div id="content" class="col-sm-9">
-				<button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-						<i class="glyphicon glyphicon-align-left"></i>
-						Menu
-				</button>
-				<div class="row" ng-view>
-
+				<div class="col-sm-12 col-md-9">
+						<div class="row">
+								<nav class="navbar navbar-inverse">
+									<div class="container-fluid">
+										<div class="navbar-header">
+											<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+												<span class="sr-only">Toggle navigation</span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
+										</div>
+										<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+											<ul class="nav navbar-nav">
+												<li><a href="#/">Home</a></li>
+												<li><a href="#/">League info</a></li>
+												<li><a href="#/">Schedule</a></li>
+												<li><a href="#/">Standings and Stats</a></li>
+												<li><a href="#/">Rules</a></li>
+												<li><a href="#/">Partners</a></li>
+												<li><a href="#/">Contact Us</a></li>
+												<li><a href="#/teams/new">Register A Team</a></li>
+											</ul>
+											<ul class="nav navbar-nav navbar-right">
+												<li><a href="#/teams/list">Teams</a></li>
+												<li><a href="#/">Admin</a></li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+							</div>
+							<div class="row" >
+								
+								<div class="col-sm-12 col-md-9" ng-view>
+					
+								</div>
+							</div>
 				</div>
 			</div>
-
-		</div> -->
-	<!--</body> -->
+			
+		</div>
+		
+	</body>
 </html>
