@@ -14,3 +14,12 @@ Secondary Features:
 - Create payment module 
 
 
+Docker Features: 
+
+- NGINX routing
+- Docker setup
+- Circle CI
+- API testing
+- Containers
+- Automate deployments
+- Versioning

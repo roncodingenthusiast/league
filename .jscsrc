@@ -1,4 +1,8 @@
 {
+	"maximumLineLength": {
+		"value": 100,
+		"tabSize": 2
+	},
 	"excludeFiles": [
 		"node_modules/*",
 		".git/*",

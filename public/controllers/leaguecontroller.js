@@ -1,4 +1,5 @@
-app.controller('leagueCtrl', ['$scope', '$http', '$location', 'HeadersConfig', function($scope, $http, $location, HeadersConfig){
+app.controller('leagueCtrl', ['$scope', '$http', '$location', '$routeParams', 'HeadersConfig',
+	function($scope, $http, $location, $routeParams, HeadersConfig){
 	$scope.leagues = [];
 	$scope.queryAllTeams = function() {
 		$http.get('/teams', HeadersConfig.getConfig())

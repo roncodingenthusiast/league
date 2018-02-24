@@ -1,4 +1,5 @@
-app.controller('gamesCtrl', ['$scope', '$http', '$location', 'HeadersConfig', function($scope, $http, $location, HeadersConfig){
+app.controller('gamesCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
+function($scope, $http, $location, HeadersConfig){
 	$scope.games = [];
 
 	$scope.queryAllGames = function() {

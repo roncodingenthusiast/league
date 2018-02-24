@@ -1,4 +1,5 @@
-app.controller('teamsCtrl', ['$scope', '$http', '$location', 'HeadersConfig', function($scope, $http, $location, HeadersConfig){
+app.controller('teamsCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
+function($scope, $http, $location, HeadersConfig){
 	$scope.teams = [];
 
 	function getRandomArbitrary(min, max) {

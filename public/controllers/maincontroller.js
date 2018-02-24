@@ -1,3 +1,4 @@
-app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('mainCtrl', ['$scope', '$http',
+function($scope, $http){
 	
 }]);

@@ -1,5 +1,4 @@
 app.config(function($routeProvider){
-	//when the user initially access the application it goes to home
 	$routeProvider
 	.when('/', {
 		templateUrl: 'public/templates/home.html',
@@ -30,7 +29,16 @@ app.config(function($routeProvider){
 		templateUrl: 'public/templates/leagues/new.html', 
 		controller: 'leagueCtrl'
 	})
-	// //teams
+	.otherwise({
+		redirecTo: '/'
+	});
+});
+
+
+
+
+
+// //teams
 	// .when('/teams/new',{
 	// 	templateUrl: 'public/templates/teams/new.html', 
 	// 	controller: 'teamsCtrl'
@@ -56,7 +64,3 @@ app.config(function($routeProvider){
 	// 	controller: 'playersCtrl'
 	// })
 	//if the route is not recognised then it redirects you to home page
-	.otherwise({
-		redirecTo: '/'
-	});
-});
