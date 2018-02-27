@@ -6,7 +6,7 @@ app.config(function($routeProvider){
 	})
 	//league list
 	.when('/league',{
-		templateUrl: 'public/templates/leagues/new.html', 
+		templateUrl: 'public/templates/leagues/list.html', 
 		controller: 'leagueCtrl'
 	})
 	//create a new league
@@ -33,10 +33,6 @@ app.config(function($routeProvider){
 		redirecTo: '/'
 	});
 });
-
-
-
-
 
 // //teams
 	// .when('/teams/new',{
