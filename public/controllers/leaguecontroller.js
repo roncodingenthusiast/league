@@ -1,11 +1,26 @@
-app.controller('leagueCtrl', ['$scope', '$http', '$location', '$routeParams', 'HeadersConfig',
-	function($scope, $http, $location, $routeParams, HeadersConfig){
+app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location', '$routeParams', 'HeadersConfig',
+	function($scope, $http, $route, $location, $routeParams, HeadersConfig){
+	
+	var currentTemplateTitle = $route.current.$$route.templateTitle;
+	
 	$scope.queryAllLeagues = function(){
 		$scope.leagues = [];
 		$http
 		.get('/leagues', HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
 			$scope.leagues = response.data;
+		}, 
+		function failedRequest(error){
+			console.log('here is the reason for failure', error);
+		});
+	};
+
+	$scope.queryOneLeague = function(leagueIdToQuery){
+		$http
+		.get('/leagues/'+leagueIdToQuery, HeadersConfig.getConfig())
+		.then(function successfulRequest(response){
+			console.log(response);
+			$location.path('/league');
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
@@ -26,8 +41,13 @@ app.controller('leagueCtrl', ['$scope', '$http', '$location', '$routeParams', 'H
 			}
 		);
 	};
-	console.log($scope.leagues);
-	//$scope.leagueToSave = HeadersConfig.resetForm();
-	$scope.queryAllLeagues();
-	console.log($scope.leagues);
+	if(currentTemplateTitle === 'list'){
+		$scope.queryAllLeagues();
+	}else if(currentTemplateTitle === 'edit' || currentTemplateTitle == 'list_one'){
+		console.log('$routeParams', $routeParams.id);
+		$scope.queryOneLeague($routeParams.id);
+		
+		$scope.currentLeague = {}; 
+	}
+	
 }]);
