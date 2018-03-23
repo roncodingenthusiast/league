@@ -61,3 +61,6 @@ ALTER TABLE `league`
 --
 ALTER TABLE `league`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+CREATE USER 'league'@'localhost';
+GRANT ALL PRIVILEGES ON dbTest.* To 'league'@'localhost' IDENTIFIED BY 'league';
