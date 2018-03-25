@@ -2,7 +2,7 @@
 
 Basic features: 
 
-- Create tournaments 
+- Create tournaments (x)
 - Create teams for tournaments 
 - Randomize games for tournament 
 - Create points table for tournaments

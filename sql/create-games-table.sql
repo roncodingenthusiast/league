@@ -27,7 +27,7 @@ CREATE TABLE `league` (
   `difficulty_level` text,
   `week_day` text,
   `location` text,
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `league_name` text,
   `league_manager` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -64,3 +64,15 @@ ALTER TABLE `league`
 
 CREATE USER 'league'@'localhost';
 GRANT ALL PRIVILEGES ON dbTest.* To 'league'@'localhost' IDENTIFIED BY 'league';
+
+CREATE TABLE `teams` (
+  `league_id` int(11),
+  `skill_level` text,
+  `team_name` text,
+  `color` text,
+  `captain_email` text,
+  `id` int(11) NOT NULL AUTO_INCREMENT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `teams`
+  ADD PRIMARY KEY (`id`);

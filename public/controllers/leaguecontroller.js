@@ -1,4 +1,5 @@
-app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location', '$routeParams', 'HeadersConfig',
+app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
+	'$routeParams', 'HeadersConfig',
 	function($scope, $http, $route, $location, $routeParams, HeadersConfig){
 	
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
@@ -16,11 +17,13 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location', '$routeP
 	};
 
 	$scope.queryOneLeague = function(leagueIdToQuery){
+		$scope.currentLeague = {};
 		$http
 		.get('/leagues/'+leagueIdToQuery, HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
 			console.log(response);
-			$location.path('/league');
+			//$location.path('/league');
+			$scope.currentLeague = response.data[0];
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
@@ -49,5 +52,6 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location', '$routeP
 		
 		$scope.currentLeague = {}; 
 	}
+	
 	
 }]);
