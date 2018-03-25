@@ -1,0 +1,16 @@
+<div class="col-sm-12">
+	<h2>Schedule</h2>
+	<div>
+		<p class="bg-primary">
+			id: {{currentLeague.id}} <br>
+			Start Date <i class="fa fa-futbol"></i>: {{currentLeague.start_date | date: 'yyyy-MM-dd HH:mm'}} <br>
+			End Date <i class="fa fa-futbol"></i>: {{currentLeague.end_date | date: 'yyyy-MM-dd HH:mm'}} <br>
+			<span>League Name:</span> {{ currentLeague.league_name }} <br> 
+			<span>WeekDay:</span> {{ currentLeague.week_day }}<br>
+			<span>number of teams</span> {{currentLeague.number_of_teams}} <br>
+			<span>Location</span> {{currentLeague.location}} <br>
+			<span>League manager</span> {{currentLeague.league_manager}} <br>
+			<span>difficult Level</span> {{currentLeague.difficulty_level}}
+		</p>
+	</div>
+</div>

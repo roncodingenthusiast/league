@@ -23,3 +23,14 @@ Docker Features:
 - Containers
 - Automate deployments
 - Versioning
+
+
+
+
+
+
+## DONE: 
+
+- List all leagues
+- create a new league
+- list one league

@@ -15,26 +15,42 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 			console.log('here is the reason for failure', error);
 		});
 	};
-
-	$scope.queryOneLeague = function(leagueIdToQuery){
+	$scope.deleteLeague = function(leagueIdToDelete){
+		var urlToQuery = '/leagues/'+leagueIdToDelete;
 		$scope.currentLeague = {};
 		$http
-		.get('/leagues/'+leagueIdToQuery, HeadersConfig.getConfig())
+		.delete(urlToQuery, HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
-			console.log(response);
-			//$location.path('/league');
-			$scope.currentLeague = response.data[0];
+			$location.path('/league');
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
 		});
 	};
-	
-	$scope.leaveToSave = {};
+	$scope.queryOneLeague = function(leagueIdToQuery, actionType){
+		
+		var urlToQuery = '/leagues/'+leagueIdToQuery;
+		$scope.currentLeague = {};
+		$http
+		.get(urlToQuery, HeadersConfig.getConfig())
+		.then(function successfulRequest(response){
+			if(actionType === 'list'){
+				console.log('bleh');
+				$scope.currentLeague = response.data[0];
+			}else{
+				$scope.leagueToSave = response.data[0];
+				console.log('bleh', $scope.leagueToSave);
+			}
+			
+		}, 
+		function failedRequest(error){
+			console.log('here is the reason for failure', error);
+		});
+	};
 	$scope.saveLeague = function(leaguePostData){
 		console.log('postData', leaguePostData);
-		$scope.leaveToSave = angular.copy(leaguePostData);
-		$http.post('/leagues', $.param($scope.leaveToSave), HeadersConfig.getConfig())
+		$scope.leagueToSave = angular.copy(leaguePostData);
+		$http.post('/leagues', $.param($scope.leagueToSave), HeadersConfig.getConfig())
 		.then(
 			function success(data){
 				$location.path('/league');
@@ -44,14 +60,33 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 			}
 		);
 	};
-	if(currentTemplateTitle === 'list'){
-		$scope.queryAllLeagues();
-	}else if(currentTemplateTitle === 'edit' || currentTemplateTitle == 'list_one'){
-		console.log('$routeParams', $routeParams.id);
-		$scope.queryOneLeague($routeParams.id);
-		
-		$scope.currentLeague = {}; 
+
+	switch(currentTemplateTitle){
+		case 'list_all_leagues':
+			$scope.queryAllLeagues();
+			break;
+		case 'new_league':
+			$scope.leagueToSave = {};
+			break;
+		case 'list_one':
+			$scope.currentLeague = {};
+			$scope.queryOneLeague($routeParams.id, 'list');
+			break;
+		case 'edit_one':
+			$scope.queryOneLeague($routeParams.id, 'edit');
+			break;
+		case 'list_one_league_games':
+		case 'list_one_league_teams':
+		default: 
+			break; 
 	}
+
+	// else if(currentTemplateTitle === 'edit' || currentTemplateTitle == 'list_one'){
+	// 	
+	// 	//
+		
+	// 	$scope.currentLeague = {}; 
+	// }
 	
 	
 }]);

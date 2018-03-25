@@ -3,32 +3,37 @@ app.controller('teamsCtrl', ['$scope', '$http', '$route', '$routeParams',
 function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 	$scope.teams = [];
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
+	if(currentTemplateTitle === 'new_team'){
+		console.log('$routeParams', $routeParams.id);
+		$scope.teamToSave = {};
+	}
+
 	// function getRandomArbitrary(min, max) {
 	// 	return Math.random() * (max - min) + min;
 	// }
-	// $scope.queryAllTeams = function() {
-	// 	$http.get('/teams', HeadersConfig.getConfig())
-	// 	.then(
-	// 		function success(response){
-	// 			$scope.teams = response.data;
-	// 			$scope.games = {};
-	// 			if($scope.teams.length % 2 !== 0){
-	// 				$scope.teams.push({
-	// 					id: 'bye',
-	// 					teamname: 'bye',
-	// 					color: 'bye',
-	// 					captainemail: 'bye@email.com',
-	// 					league: 'bye',
-	// 					level: 'bye'
-	// 				});
-	// 				//https://en.wikipedia.org/wiki/Round-robin_tournament
-	// 			}
-	// 		},
-	// 		function failed(err){
+	$scope.queryAllTeams = function() {
+		$http.get('/teams', HeadersConfig.getConfig())
+		.then(
+			function success(response){
+				$scope.teams = response.data;
+				$scope.games = {};
+				if($scope.teams.length % 2 !== 0){
+					$scope.teams.push({
+						id: 'bye',
+						teamname: 'bye',
+						color: 'bye',
+						captainemail: 'bye@email.com',
+						league: 'bye',
+						level: 'bye'
+					});
+					//https://en.wikipedia.org/wiki/Round-robin_tournament
+				}
+			},
+			function failed(err){
 
-	// 		}
-	// 	);
-	// };
+			}
+		);
+	};
 	
 	
     $scope.saveTeam = function(submittedTeam) {
@@ -46,9 +51,6 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 			}
 		);
     };
-	if(currentTemplateTitle === 'new_team'){
-		console.log('$routeParams', $routeParams.id);
-		$scope.teamToSave = {};
-	}
+	
 	$scope.teamToSave = HeadersConfig.resetForm();
 }]);
