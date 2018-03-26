@@ -1,3 +1,4 @@
+
 app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	'$routeParams', 'HeadersConfig',
 	function($scope, $http, $route, $location, $routeParams, HeadersConfig){
@@ -27,6 +28,21 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 			console.log('here is the reason for failure', error);
 		});
 	};
+	$scope.updateLeague = function(leagueIdToQuery){
+		var urlToQuery = '/leagues/'+leagueIdToQuery;
+		console.log('urlToQuery === ', urlToQuery);
+		var postData = $scope.leagueToSave;
+		console.log('postData', postData);
+		$http
+		.put(urlToQuery, $.param(postData), HeadersConfig.getConfig())
+		.then(function successfulRequest(response){
+			console.log('response', response);
+			//$location.path('/league');
+		}, 
+		function failedRequest(error){
+			console.log('here is the reason for failure', error);
+		});
+	}
 	$scope.queryOneLeague = function(leagueIdToQuery, actionType){
 		
 		var urlToQuery = '/leagues/'+leagueIdToQuery;
@@ -34,14 +50,8 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		$http
 		.get(urlToQuery, HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
-			if(actionType === 'list'){
-				console.log('bleh');
-				$scope.currentLeague = response.data[0];
-			}else{
-				$scope.leagueToSave = response.data[0];
-				console.log('bleh', $scope.leagueToSave);
-			}
-			
+			$scope.currentLeague = response.data[0];
+			$scope.leagueToSave = angular.copy(response.data[0]);
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
