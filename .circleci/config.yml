@@ -39,12 +39,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run:
-        name: load-docker-image-layer
-        command: |
-          set +o pipefail
-          docker load -i /caches/app.tar | true
-
       - run: 
           name: install-docker-compose-stuff
           command: |
