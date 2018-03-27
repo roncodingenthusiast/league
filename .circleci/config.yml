@@ -18,7 +18,9 @@ jobs:
     
     steps:
       - checkout
-
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -26,7 +28,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: install-packages
+          command: 'sudo npm install'
 
       - save_cache:
           paths:
@@ -34,4 +38,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm test
+      - run: 
+          name: node-test
+          command: 'sudo npm test'
+      - run: 
+          name: install-python-stuff
+          command: 'sudo pip install -U docker-compose'

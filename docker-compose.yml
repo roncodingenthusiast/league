@@ -18,7 +18,7 @@ services:
       - ./sql/1-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./sql/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
 
-  league-manager-pro:
+  league_manager_pro:
     build: .
     ports:
       - "3000:3000"
