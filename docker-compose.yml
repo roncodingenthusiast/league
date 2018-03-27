@@ -22,6 +22,8 @@ services:
     build: .
     ports:
       - "3000:3000"
+    environment: 
+      - DB_HOST=mysql
     expose:
       - "3000"
     depends_on:
