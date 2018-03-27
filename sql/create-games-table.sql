@@ -14,8 +14,6 @@ SET time_zone = "+00:00";
 -- Database: `pro_league_manager`
 --
 
--- --------------------------------------------------------
-
 --
 -- Table structure for table `league`
 --
@@ -29,7 +27,8 @@ CREATE TABLE `league` (
   `location` text,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `league_name` text,
-  `league_manager` text
+  `league_manager` text,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,28 +41,8 @@ INSERT INTO `league` (`start_date`, `end_date`, `number_of_teams`, `difficulty_l
 ('0000-00-00', '0000-00-00', 23, 'Recreational', 'tuesday', 'sdf', 3, 'league', NULL),
 ('0000-00-00', '0000-00-00', 12, 'Beginner / Recreational', 'monday', 'sdf', 4, 'league', 'manager');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `league`
---
-ALTER TABLE `league`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `league`
---
-ALTER TABLE `league`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 CREATE USER 'league'@'localhost';
-GRANT ALL PRIVILEGES ON dbTest.* To 'league'@'localhost' IDENTIFIED BY 'league';
+GRANT ALL PRIVILEGES ON *.* To 'league'@'localhost' IDENTIFIED BY 'league';
 
 CREATE TABLE `teams` (
   `league_id` int(11),
@@ -71,8 +50,6 @@ CREATE TABLE `teams` (
   `team_name` text,
   `color` text,
   `captain_email` text,
-  `id` int(11) NOT NULL AUTO_INCREMENT
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE `teams`
-  ADD PRIMARY KEY (`id`);
