@@ -37,7 +37,7 @@ jobs:
       # run tests!
       - run: 
           name: node-test
-          command: 'sudo npm test'
+          command: npm test
       - run: 
           name: install-python-stuff
           command: 'sudo pip install -U docker-compose'

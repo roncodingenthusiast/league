@@ -1,6 +1,6 @@
 {
   "name": "league",
-  "version": "v0.0.1",
+  "version": "v0.0.2",
   "description": "league manager",
   "main": "app.js",
   "scripts": {
