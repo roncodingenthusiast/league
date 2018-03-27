@@ -4,9 +4,7 @@
   "description": "league manager",
   "main": "app.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=league_manager_pro DB_USER=root node_modules/.bin/jscs .",
-    "migrate": "knex migrate:latest",
-    "rollback": "knex migrate:rollback"
+    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root node_modules/.bin/jscs ."
   },
   "repository": {
     "type": "git",

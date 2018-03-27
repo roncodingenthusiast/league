@@ -1,20 +1,30 @@
-version: "2"
+version: "2.1"
 services:
-  league-manager-pro:
-    build: ./
-    volumes: 
-    ports:
-    command: node serve.js
-
-  db:
-    image: mysql/mysql-server:5.6
-    restart: always
+  mysql:
+    build: ./sql
+    restart: unless-stopped
     ports:
       - "3306:3306"
     expose:
       - "3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret-root
-      MYSQL_DATABASE: dbname
+      MYSQL_DATABASE: pro_league_manager
       MYSQL_USER: web
       MYSQL_PASSWORD: web
+    healthcheck:
+      test: "exit 0"
+    volumes:
+      - ./sql/1-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./sql/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
+
+  league-manager-pro:
+    build: .
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    command: node server.js
