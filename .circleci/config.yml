@@ -45,5 +45,8 @@ jobs:
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run: 
+        name: docker-compose-build
+        command: docker-compose build
+      - run: 
           name: node-test
           command: npm test
