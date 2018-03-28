@@ -1,7 +1,14 @@
 version: "2.1"
 services:
+  nginx:
+    restart: always
+    build: ./configs/nginx
+    ports:
+      - "80:80"
+    expose:
+      - "80"
   mysql:
-    build: ./sql
+    build: ./configs/database
     restart: unless-stopped
     ports:
       - "3306:3306"
@@ -15,8 +22,8 @@ services:
     healthcheck:
       test: "exit 0"
     volumes:
-      - ./sql/1-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
-      - ./sql/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
+      - ./configs/database/1-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./configs/database/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
 
   league_manager_pro:
     build: .

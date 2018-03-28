@@ -1,3 +1,6 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 CREATE DATABASE IF NOT EXISTS pro_league_manager;
 CREATE USER 'league'@'%';
 GRANT ALL PRIVILEGES ON *.* To 'league'@'%' IDENTIFIED BY 'league';
