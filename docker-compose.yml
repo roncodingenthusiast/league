@@ -7,6 +7,9 @@ services:
       - "80:80"
     expose:
       - "80"
+    links:
+      - league_manager_pro_1:league_manager_pro_1
+    command: service nginx start
   mysql:
     build: ./configs/database
     restart: unless-stopped
@@ -24,8 +27,7 @@ services:
     volumes:
       - ./configs/database/1-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./configs/database/2-data.sql:/docker-entrypoint-initdb.d/2-data.sql
-
-  league_manager_pro:
+  league_manager_pro_1:
     build: .
     ports:
       - "3000:3000"
