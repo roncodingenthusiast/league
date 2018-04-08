@@ -23,21 +23,36 @@ for(var i = 0; i < shuffledTeams.length; i++){
 
 	var totalNumberOfOpponents = shuffledTeams.length - 1;
 	var numberOfOpponents = shuffledTeams[i].opponents.length;
-	console.log('current image', i);
 	while(numberOfOpponents != totalNumberOfOpponents){
 		var opponentNumber = Math.floor(Math.random() * (shuffledTeams.length));
 		var opponentIndex = _.indexOf(shuffledTeams[i].opponents, shuffledTeams[opponentNumber].id);
 		if(opponentNumber !== i && opponentIndex === -1){
-			console.log('opponentNumber ==========>', opponentNumber);
-			console.log('opponentIndex ==========>', opponentIndex);
 			shuffledTeams[i].opponents.push(shuffledTeams[opponentNumber].id);
-			//shuffledTeams[opponentNumber].opponents.push(shuffledTeams[i].id);
 			numberOfOpponents++;
 		}
 	}
 }
 
-10, 7, 11, 2, 6, 5, 4, 0, 1, 8, 3
+var games = [];
+_.each(shuffledTeams, function(team){
+	_.each(team.opponents, function(opponent){
+		games.push({home: team.id, away: opponent});
+	})
+});
 
-console.log(shuffledTeams);
+var gamesPerRound = shuffledTeams.length / 2;
+var numberOfWeeks = games.length / gamesPerRound;
+
+var weekGames = []
+for(var i = 0; i < numberOfWeeks; i++){
+	var games = []
+	for(var j = 0; j < gamesPerRound; j++){
+
+	}
+	weekGames.push({
+		week: i+1,
+		games: games
+	})
+}
+console.log('weekGames', weekGames);
 
