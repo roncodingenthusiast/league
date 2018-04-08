@@ -45,14 +45,18 @@ var numberOfWeeks = games.length / gamesPerRound;
 
 var weekGames = []
 for(var i = 0; i < numberOfWeeks; i++){
-	var games = []
-	for(var j = 0; j < gamesPerRound; j++){
-
+	var gamesWeek = []
+	while(gamesWeek.length !== gamesPerRound){
+		var gamePick = Math.floor(Math.random() * games.length);
+		var indexOfGame = _.indexOf(gamesWeek, games[gamePick]);
+		if(indexOfGame === -1){
+			gamesWeek.push(games[gamePick])
+		}
 	}
 	weekGames.push({
 		week: i+1,
-		games: games
+		games: gamesWeek
 	})
 }
-console.log('weekGames', weekGames);
+console.log('weekGames', JSON.stringify(weekGames, null, 2));
 
