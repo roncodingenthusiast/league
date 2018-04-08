@@ -52,6 +52,12 @@ app.config(function($routeProvider){
 		templateUrl: 'public/templates/leagues/new.html', 
 		controller: 'leagueCtrl'
 	})
+
+	//login
+	.when('/admin-login', {
+		templateUrl: 'public/templates/login/login.html',
+		controller: 'loginCtrl'
+	})
 	.otherwise({
 		redirecTo: '/'
 	});

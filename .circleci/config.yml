@@ -38,7 +38,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
-      # run tests!
+      # run tests! 
       - run: 
           name: install-docker-compose-stuff
           command: |
