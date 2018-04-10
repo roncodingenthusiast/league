@@ -25,32 +25,20 @@ app.config(function($routeProvider){
 		controller: 'leagueCtrl',
 		templateTitle: 'edit_one'
 	})
-
-
-
-
-
-	
 	.when('/league/:id/games',{
-		templateUrl: 'public/templates/leagues/edit.html', 
-		controller: 'leagueCtrl',
+		templateUrl: 'public/templates/games/list.html', 
+		controller: 'gamesCtrl',
 		templateTitle: 'list_league_games'
 	})
 	.when('/league/:id/teams',{
-		templateUrl: 'public/templates/leagues/edit.html', 
-		controller: 'leagueCtrl',
+		templateUrl: 'public/templates/teams/list.html', 
+		controller: 'teamsCtrl',
 		templateTitle: 'list_league_teams'
 	})
-	//add a team to a league
 	.when('/league/:id/teams/new',{
 		templateUrl: 'public/templates/teams/new.html', 
 		controller: 'teamsCtrl',
 		templateTitle: 'new_team'
-	})
-	//list of teams in league
-	.when('/teams/:id/edit',{
-		templateUrl: 'public/templates/leagues/new.html', 
-		controller: 'leagueCtrl'
 	})
 	.otherwise({
 		redirecTo: '/'

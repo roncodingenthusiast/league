@@ -99,13 +99,4 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		default: 
 			break; 
 	}
-
-	// else if(currentTemplateTitle === 'edit' || currentTemplateTitle == 'list_one'){
-	// 	
-	// 	//
-		
-	// 	$scope.currentLeague = {}; 
-	// }
-	
-	
 }]);

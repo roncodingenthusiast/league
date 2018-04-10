@@ -3,11 +3,11 @@
 	<div ng-repeat="team in teams">
 			<p class="bg-primary">
 				<a id="team-link" ng-href="#/team/{{ team.id }}/players/list"> Id: {{ team.id }}</a> <br>
-				Team: {{team.teamname}} <br>
+				Team: {{team.team_name}} <br>
 				Color: {{team.color}} <br>
-				captainEmail: {{team.captainemail}} <br>
-				league: {{team.league}}<br>
-				level: {{team.level}} <br> 
+				captainEmail: {{team.captain_email}} <br>
+				league: {{team.league_id}}<br>
+				level: {{team.skill_level}} <br> 
 				<a id="team-link" ng-href="#/team/{{ team.id }}/players/new"> Add a player</a> <br>
 			</p>
 	</div>

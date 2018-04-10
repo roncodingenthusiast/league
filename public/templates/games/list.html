@@ -2,7 +2,7 @@
 	<h2>Schedule</h2>
 	<div ng-repeat="game in games">
 			<p class="bg-primary">
-				 Game Day <i class="fa fa-futbol"></i>: {{game.date_time | date: 'yyyy-MM-dd HH:mm'}} <br>
+				 Game Day <i class="fa fa-futbol"></i>: {{game.game_date | date: 'yyyy-MM-dd HH:mm'}} <br>
 
 				<span>Home Team:</span> {{ game.hometeam }} <br> 
 				vs <br>
