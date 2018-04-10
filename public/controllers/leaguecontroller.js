@@ -15,6 +15,15 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
 		});
+
+		// $http
+		// .get('/leagues/1/creategames', HeadersConfig.getConfig())
+		// .then(function successfulRequest(response){
+		// 	console.log(response);
+		// }, 
+		// function failedRequest(error){
+		// 	console.log('here is the reason for failure', error);
+		// });
 	};
 	$scope.deleteLeague = function(leagueIdToDelete){
 		var urlToQuery = '/leagues/'+leagueIdToDelete;

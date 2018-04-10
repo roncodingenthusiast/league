@@ -4,7 +4,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS pro_league_manager;
 CREATE USER 'league'@'%';
 GRANT ALL PRIVILEGES ON *.* To 'league'@'%' IDENTIFIED BY 'league';
-
+USE pro_league_manager;
 CREATE TABLE `leagues` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE `teams` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `games` (
-  `game_date` date NOT NULL,
+  `game_date` date,
   `home_team_id` int(11),
   `away_team_id` int(11),
   `league_id` int(11),
