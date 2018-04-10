@@ -34,3 +34,16 @@ Docker Features:
 - List all leagues
 - create a new league
 - list one league
+
+## HOW pairing teams works: 
+
+- Team A, B, C, D, E, F
+
+A vs B, C vs D, E vs F 
+
+HomePool 
+{ A, B, C, D, E, Bye}
+
+AwayPool
+
+{ Bye, E, D, C, B, A}
