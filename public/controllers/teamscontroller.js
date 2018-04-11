@@ -7,6 +7,8 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 		console.log('$routeParams', $routeParams.id);
 		$scope.teamToSave = {};
 	}
+	if(currentTemplateTitle === 'list_league_teams'){
+	}
 	$scope.queryAllTeams = function() {
 		$http.get('/teams', HeadersConfig.getConfig())
 		.then(

@@ -1,14 +1,27 @@
 <div class="col-sm-12">
-	list is here 
-	<div ng-repeat="team in teams">
-			<p class="bg-primary">
-				<a id="team-link" ng-href="#/team/{{ team.id }}/players/list"> Id: {{ team.id }}</a> <br>
-				Team: {{team.team_name}} <br>
-				Color: {{team.color}} <br>
-				captainEmail: {{team.captain_email}} <br>
-				league: {{team.league_id}}<br>
-				level: {{team.skill_level}} <br> 
-				<a id="team-link" ng-href="#/team/{{ team.id }}/players/new"> Add a player</a> <br>
-			</p>
-	</div>
+	<h2>List of Teams</h2>
+	<table class="table table-hover">
+		<tr>
+			<th>
+				<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+			</th>
+			<th>Team</th>
+			<th>Color</th>
+			<th>captainEmail</th>
+			<th>league</th>
+			<th>level</th>
+		</tr>
+		<tr ng-repeat="team in teams">
+			<td> 
+				<a ng-href="#/league/{{team.id}}/edit">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				</a>
+			</td>
+			<td>{{team.team_name}}</td>
+			<td>{{team.captain_email}}</td>
+			<td>{{team.color}}</td>
+			<td>{{team.league_id}}</td>
+			<td>{{team.skill_level}}</td>
+		</tr>
+	</table>
 </div>
