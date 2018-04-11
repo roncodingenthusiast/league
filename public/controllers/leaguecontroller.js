@@ -4,7 +4,23 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	function($scope, $http, $route, $location, $routeParams, HeadersConfig){
 	
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
-	
+	$scope.createGamesForLeague = function(idToQuery) {
+		console.log(idToQuery);
+		if(idToQuery){
+			var urlToQuery = '/leagues/' + idToQuery + '/creategames';
+			console.log('urlToQuery', urlToQuery);
+			$http
+			.get(urlToQuery, HeadersConfig.getConfig())
+			.then(function successfulRequest(response){
+				$location.path('/league/'+idToQuery+'/games');
+			}, 
+			function failedRequest(error){
+				alert('here is the reason for failure', error);
+			});
+		}else{
+			alert('no route params moffo');
+		}
+	};
 	$scope.queryAllLeagues = function(){
 		$scope.leagues = [];
 		$http
@@ -16,14 +32,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 			console.log('here is the reason for failure', error);
 		});
 
-		// $http
-		// .get('/leagues/1/creategames', HeadersConfig.getConfig())
-		// .then(function successfulRequest(response){
-		// 	console.log(response);
-		// }, 
-		// function failedRequest(error){
-		// 	console.log('here is the reason for failure', error);
-		// });
+		
 	};
 	$scope.deleteLeague = function(leagueIdToDelete){
 		var urlToQuery = '/leagues/'+leagueIdToDelete;

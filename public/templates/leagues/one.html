@@ -10,7 +10,106 @@
 			<span>number of teams</span> {{currentLeague.number_of_teams}} <br>
 			<span>Location</span> {{currentLeague.location}} <br>
 			<span>League manager</span> {{currentLeague.league_manager}} <br>
-			<span>difficult Level</span> {{currentLeague.difficulty_level}}
+			<span>difficult Level 4</span> {{currentLeague.difficulty_level}}
+		</p>
+		<p>
+			<button class="btn btn-primary" ng-click="createGamesForLeague(currentLeague.id)">Randomize Games For League</button>
 		</p>
 	</div>
 </div>
+
+  <div class="col-sm-12">
+	<h2>SATURDAY LEAGUE TABLE</h2>
+		<table class="table table-striped">
+		  <tr class="danger">
+			<td>#</td>
+			<td>Team</td>
+			<td>GP</td>
+			<td>W</td>
+			<td>L</td>
+			<td>D</td>
+			<td>+/-</td>
+			<td>PTS</td>
+		  </tr>
+		  <tr class="bg-success">
+			<td>1</td>
+			<td><a class="" href="#">Vipers FC</a></td>
+			<td>8</td>
+			<td>8</td>
+			<td>0</td>
+			<td>0</td>
+			<td>26</td>
+			<td>24</td>
+		  </tr>
+		  <tr>
+			<td>2</td>
+			<td><a class="" href="#">Spartans FC</a></td>
+			<td>8</td>
+			<td>6</td>
+			<td>2</td>
+			<td>0</td>
+			<td>10</td>
+			<td>18</td>
+		  </tr>
+		  <tr>
+			<td>3</td>
+			<td><a class="" href="#">Volt FC</a></td>
+			<td>8</td>
+			<td>5</td>
+			<td>2</td>
+			<td>1</td>
+			<td>10</td>
+			<td>16</td>
+		  </tr>
+		  <tr>
+			<td>4</td>
+			<td><a class="" href="#">The Hulks</a></td>
+			<td>8</td>
+			<td>4</td>
+			<td>4</td>
+			<td>0</td>
+			<td>10</td>
+			<td>12</td>
+		  </tr>
+		  <tr>
+			<td>5</td>
+			<td><a href="#">Dark Smurfs</a></td>
+			<td>8</td>
+			<td>3</td>
+			<td>4</td>
+			<td>1</td>
+			<td>1</td>
+			<td>10</td>
+		  </tr>
+		  <tr>
+			<td>6</td>
+			<td><a href="#">Hornets</a></td>
+			<td>8</td>
+			<td>3</td>
+			<td>5</td>
+			<td>0</td>
+			<td>-7</td>
+			<td>9</td>
+		  </tr>
+		  <tr>
+			<td>7</td>
+			<td><a href="#">Misfits</a></td>
+			<td>8</td>
+			<td>1</td>
+			<td>7</td>
+			<td>0</td>
+			<td>-17</td>
+			<td>3</td>
+		  </tr>
+		  <tr>
+			<td>8</td>
+			<td><a href="#">Club Paradise FC</a></td>
+			<td>8</td>
+			<td>1</td>
+			<td>7</td>
+			<td>0</td>
+			<td>-34</td>
+			<td>3</td>
+		  </tr>
+		</table>
+	</div>
