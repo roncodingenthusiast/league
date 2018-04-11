@@ -1,16 +1,33 @@
 <div class="col-sm-12">
 	<h2>Schedule</h2>
-	<div ng-repeat="league in leagues">
-			<p class="bg-primary">
-				id: {{league.id}} <br>
-				Start Date <i class="fa fa-futbol"></i>: {{league.start_date | date: 'yyyy-MM-dd HH:mm'}} <br>
-				End Date <i class="fa fa-futbol"></i>: {{league.end_date | date: 'yyyy-MM-dd HH:mm'}} <br>
-				<span>League Name:</span> {{ league.league_name }} <br> 
-				<span>WeekDay:</span> {{ league.week_day }}<br>
-				<span>number of teams</span> {{league.number_of_teams}} <br>
-				<span>Location</span> {{league.location}} <br>
-				<span>League manager</span> {{league.league_manager}} <br>
-				<span>difficult Level</span> {{league.difficulty_level}}
-			</p>
-	</div>
+	<table class="table table-hover">
+		<tr>
+			<th>
+				<span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+			</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>League Name</th>
+			<th>WeekDay</th>
+			<th>number of teams</th>
+			<th>Location</th>
+			<th>League manager</th>
+			<th>difficult Level</th>
+		</tr>
+		<tr ng-repeat="league in leagues">
+			<td> 
+				<a ng-href="#/league/{{league.id}}/edit">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+				</a>
+			</td>
+			<td>{{league.start_date | date: 'yyyy-MM-dd'}}</td>
+			<td> {{league.end_date | date: 'yyyy-MM-dd'}}</td>
+			<td>{{league.league_name }}</td>
+			<td>{{league.week_day }}</td>
+			<td>{{league.number_of_teams}}</td>
+			<td>{{league.location}}</td>
+			<td>{{league.league_manager}}</td>
+			<td>{{league.difficulty_level}}</td>
+		</tr>
+	</table>
 </div>
