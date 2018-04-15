@@ -108,4 +108,4 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		default: 
 			break; 
 	}
-}]);
+}]);  
