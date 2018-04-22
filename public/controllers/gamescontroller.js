@@ -1,9 +1,11 @@
-app.controller('gamesCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
-function($scope, $http, $location, HeadersConfig){
+app.controller('gamesCtrl', ['$scope', '$http', '$location', '$routeParams', 'HeadersConfig',
+function($scope, $http, $location, $routeParams, HeadersConfig){
 	$scope.games = [];
-
+	console.log('blah');
 	$scope.queryAllGames = function() {
-		$http.get('/games', HeadersConfig.getConfig())
+		var urlToQuery = '/games/'+$routeParams.id;
+		console.log(urlToQuery);
+		$http.get(urlToQuery, HeadersConfig.getConfig())
 		.then(
 			function success(response){
 				$scope.games = response.data;

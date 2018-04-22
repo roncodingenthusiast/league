@@ -4,7 +4,24 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	function($scope, $http, $route, $location, $routeParams, HeadersConfig){
 	
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
-	
+	$scope.createGamesForLeague = function(idToQuery) {
+		if(idToQuery){
+			var urlToQuery = '/leagues/' + idToQuery + '/creategames';
+			var paramsForGames = {
+				start_date: '2018-02-28'
+			};
+			$http
+			.post(urlToQuery, $.param(paramsForGames), HeadersConfig.getConfig())
+			.then(function successfulRequest(response){
+				$location.path('/league/'+idToQuery+'/games');
+			}, 
+			function failedRequest(error){
+				alert('here is the reason for failure', error);
+			});
+		}else{
+			alert('no route params moffo');
+		}
+	};
 	$scope.queryAllLeagues = function(){
 		$scope.leagues = [];
 		$http
@@ -14,16 +31,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
-		});
-
-		// $http
-		// .get('/leagues/1/creategames', HeadersConfig.getConfig())
-		// .then(function successfulRequest(response){
-		// 	console.log(response);
-		// }, 
-		// function failedRequest(error){
-		// 	console.log('here is the reason for failure', error);
-		// });
+		});		
 	};
 	$scope.deleteLeague = function(leagueIdToDelete){
 		var urlToQuery = '/leagues/'+leagueIdToDelete;
@@ -80,6 +88,15 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		);
 	};
 
+	$scope.goToLeagueGames = function(leagueId) {
+		var path = '/league/'+ leagueId + '/games';
+		$location.path(path);
+	}
+	$scope.goToLeagueTeams = function(leagueId) {
+		var path = '/league/'+ leagueId + '/teams';
+		$location.path(path);
+	}
+
 	switch(currentTemplateTitle){
 		case 'list_all_leagues':
 			$scope.queryAllLeagues();
@@ -99,13 +116,4 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		default: 
 			break; 
 	}
-
-	// else if(currentTemplateTitle === 'edit' || currentTemplateTitle == 'list_one'){
-	// 	
-	// 	//
-		
-	// 	$scope.currentLeague = {}; 
-	// }
-	
-	
-}]);
+}]);  

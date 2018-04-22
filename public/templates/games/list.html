@@ -1,12 +1,27 @@
 <div class="col-sm-12">
-	<h2>Schedule</h2>
-	<div ng-repeat="game in games">
-			<p class="bg-primary">
-				 Game Day <i class="fa fa-futbol"></i>: {{game.date_time | date: 'yyyy-MM-dd HH:mm'}} <br>
-
-				<span>Home Team:</span> {{ game.hometeam }} <br> 
-				vs <br>
-				<span>Away Team:</span> {{ game.awayteam }}
-			</p>
+	<div class="row">
+	<div class="col-sm-12">
+	  <h3>FIXTURES &amp RESULTS</h3>
 	</div>
+	<div class="col-sm-12 table-responsive center">
+		<table class="table table-striped">
+		  <tr class="danger">
+			<td>Game Date</td>
+			<td>Field (Centerpointe Pk)</td>
+			<td>Home</td>
+			<td>Away</td>
+			<td>Equipment</td>
+			<td>Score</td>
+		  </tr>
+		  <tr ng-repeat="game in games">
+			<td><a href="#" target="">{{game.game_date | date: 'yyyy-MM-dd HH:mm'}}</a></td>
+			<td>Center East</td>
+			<td><a class="" href="#">{{ game.hometeam }}</a></td>
+			<td><a class="" href="#" target="">{{ game.awayteam }}</a></td>
+			<td>Volt FC</td>
+			<td> - </td>
+		  </tr>
+		</table>
+	  </div>
+  </div>
 </div>
