@@ -10,11 +10,17 @@
 			<span>number of teams</span> {{currentLeague.number_of_teams}} <br>
 			<span>Location</span> {{currentLeague.location}} <br>
 			<span>League manager</span> {{currentLeague.league_manager}} <br>
-			<span>difficult Level 4</span> {{currentLeague.difficulty_level}}
+			<span>difficult Level</span> {{currentLeague.difficulty_level}}
 		</p>
 		<p>
-			<button class="btn btn-primary" ng-click="createGamesForLeague(currentLeague.id)">Randomize Games For League</button>
+			
+			<button class="btn btn-primary" ng-click="goToLeagueGames(currentLeague.id)">Games</button>
+			<button class="btn btn-primary" ng-click="goToLeagueTeams(currentLeague.id)">Teams</button>
+			<button class="btn btn-primary" ng-click="createGamesForLeague(currentLeague.id)">Schedule Games For Season</button>
 		</p>
+
+			
+		
 	</div>
 </div>
 

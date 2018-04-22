@@ -7,10 +7,10 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 		console.log('$routeParams', $routeParams.id);
 		$scope.teamToSave = {};
 	}
-	if(currentTemplateTitle === 'list_league_teams'){
-	}
-	$scope.queryAllTeams = function() {
-		$http.get('/teams', HeadersConfig.getConfig())
+
+	$scope.queryAllTeams = function(idLeagueToQuery) {
+		var urlToQuery = '/teams/league/'+idLeagueToQuery;
+		$http.get(urlToQuery, HeadersConfig.getConfig())
 		.then(
 			function success(response){
 				$scope.teams = response.data;
@@ -35,6 +35,9 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 			}
 		);
     };
-	$scope.queryAllTeams();
+	if(currentTemplateTitle === 'list_league_teams'){
+		console.log('$routeParams', $routeParams.id);
+		$scope.queryAllTeams($routeParams.id);
+	}
 	$scope.teamToSave = HeadersConfig.resetForm();
 }]);

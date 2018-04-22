@@ -5,12 +5,13 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
 	$scope.createGamesForLeague = function(idToQuery) {
-		console.log(idToQuery);
 		if(idToQuery){
 			var urlToQuery = '/leagues/' + idToQuery + '/creategames';
-			console.log('urlToQuery', urlToQuery);
+			var paramsForGames = {
+				start_date: '2018-02-28'
+			};
 			$http
-			.get(urlToQuery, HeadersConfig.getConfig())
+			.post(urlToQuery, $.param(paramsForGames), HeadersConfig.getConfig())
 			.then(function successfulRequest(response){
 				$location.path('/league/'+idToQuery+'/games');
 			}, 
@@ -30,9 +31,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);
-		});
-
-		
+		});		
 	};
 	$scope.deleteLeague = function(leagueIdToDelete){
 		var urlToQuery = '/leagues/'+leagueIdToDelete;
@@ -88,6 +87,15 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 			}
 		);
 	};
+
+	$scope.goToLeagueGames = function(leagueId) {
+		var path = '/league/'+ leagueId + '/games';
+		$location.path(path);
+	}
+	$scope.goToLeagueTeams = function(leagueId) {
+		var path = '/league/'+ leagueId + '/teams';
+		$location.path(path);
+	}
 
 	switch(currentTemplateTitle){
 		case 'list_all_leagues':
