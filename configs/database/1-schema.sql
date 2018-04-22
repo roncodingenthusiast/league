@@ -15,7 +15,9 @@ CREATE TABLE `leagues` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `league_name` text,
   `league_manager` text,
-     PRIMARY KEY (`id`)
+  `team_price` text,
+  `individual_price` text,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `teams` (

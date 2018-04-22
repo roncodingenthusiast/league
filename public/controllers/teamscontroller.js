@@ -23,12 +23,13 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
     $scope.saveTeam = function(submittedTeam) {
 		$scope.teamToSave = angular.copy(submittedTeam);
 		$scope.teamToSave.league_id = $routeParams.id;
-		console.log('$scope.teamToSave', $scope.teamToSave);
+		var succesURL = '/league/' + $routeParams.id +'/teams';
+		
 		$http.post('/teams', $.param($scope.teamToSave), HeadersConfig.getConfig())
 		.then(
 			function success(data){
-				//$location.path('/teams/list');
-				console.log('data === ', data);
+				
+				$location.path(succesURL);
 			},
 			function failed(err){
 				console.log('err', err);
