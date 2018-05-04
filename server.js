@@ -5,5 +5,5 @@ app.get('*', function(req, res) {
 	// load the single view file (angular will handle the page changes on the front-end)
 	res.sendFile(__dirname + '/public/index.html'); 
 });
-
+console.log('App Running on PORT: ', port);
 app.listen(port);
