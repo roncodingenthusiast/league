@@ -6,9 +6,9 @@
     "node": ">=4"
   },
   "scripts": {
-    "lint": "eslint .",
+    "jscs": "jscs .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check",
+    "posttest": "npm run jscs",
     "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root node_modules/.bin/jscs ."
   },
   "dependencies": {
@@ -23,8 +23,8 @@
     "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {
+    "cross-env": "^5.1.1",
     "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0",
     "nsp": "^2.1.0"
   },
   "repository": {

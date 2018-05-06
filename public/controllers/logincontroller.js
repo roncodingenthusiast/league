@@ -1,4 +1,5 @@
-app.controller('loginCtrl', ['$scope', '$http', '$location', 'HeadersConfig', 'AuthenticationService',
+app.controller('loginCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
+	'AuthenticationService',
 	function($scope, $http, $location, HeadersConfig, AuthenticationService){
 		console.log('login module brah');
 		AuthenticationService.ClearCredentials();
@@ -17,5 +18,5 @@ app.controller('loginCtrl', ['$scope', '$http', '$location', 'HeadersConfig', 'A
                     	$scope.dataLoading = false;
 					}
 				});
-		}
+		};
 	}]);
