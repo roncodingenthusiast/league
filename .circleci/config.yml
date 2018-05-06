@@ -22,9 +22,10 @@ jobs:
       - setup_remote_docker
       - run:
           name: update-npm
-          command: |
-            'sudo npm install -g npm@latest'
-            'sudo npm install -g cross-env'            
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: update-cross-env
+          command: 'sudo npm install -g cross-env'            
       # Download and cache dependencies
       - restore_cache:
           keys:
