@@ -9,7 +9,7 @@
     "jscs": "jscs .",
     "start": "node .",
     "posttest": "npm run jscs",
-    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root node_modules/.bin/jscs ."
+    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root npm run jscs"
   },
   "dependencies": {
     "compression": "^1.0.3",
