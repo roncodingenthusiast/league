@@ -2,9 +2,6 @@
   "name": "league",
   "version": "v0.0.3",
   "main": "server/server.js",
-  "engines": {
-    "node": ">=4"
-  },
   "scripts": {
     "jscs": "jscs .",
     "start": "node .",
