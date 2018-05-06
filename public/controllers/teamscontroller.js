@@ -9,7 +9,7 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
 	}
 
 	$scope.queryAllTeams = function(idLeagueToQuery) {
-		var urlToQuery = '/teams/league/'+idLeagueToQuery;
+		var urlToQuery = 'api/teams/league/'+idLeagueToQuery;
 		$http.get(urlToQuery, HeadersConfig.getConfig())
 		.then(
 			function success(response){
@@ -23,9 +23,9 @@ function($scope, $http, $route,  $routeParams, $location, HeadersConfig){
     $scope.saveTeam = function(submittedTeam) {
 		$scope.teamToSave = angular.copy(submittedTeam);
 		$scope.teamToSave.league_id = $routeParams.id;
-		var succesURL = '/league/' + $routeParams.id +'/teams';
+		var succesURL = 'api/league/' + $routeParams.id +'/teams';
 		
-		$http.post('/teams', $.param($scope.teamToSave), HeadersConfig.getConfig())
+		$http.post('api/teams', $.param($scope.teamToSave), HeadersConfig.getConfig())
 		.then(
 			function success(data){
 				

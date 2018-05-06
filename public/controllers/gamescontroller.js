@@ -2,7 +2,7 @@ app.controller('gamesCtrl', ['$scope', '$http', '$location', '$routeParams', 'He
 function($scope, $http, $location, $routeParams, HeadersConfig){
 	$scope.games = [];
 	$scope.queryAllGames = function() {
-		var urlToQuery = '/games/'+$routeParams.id;
+		var urlToQuery = 'api/game/'+$routeParams.id;
 		console.log(urlToQuery);
 		$http.get(urlToQuery, HeadersConfig.getConfig())
 		.then(

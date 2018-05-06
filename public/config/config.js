@@ -1,4 +1,4 @@
-app.config(function($routeProvider){
+app.config(function($routeProvider, $locationProvider){
 	$routeProvider
 	.when('/', {
 		templateUrl: './templates/home.html',
@@ -42,5 +42,9 @@ app.config(function($routeProvider){
 	})
 	.otherwise({
 		redirecTo: '/'
+	});
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
 	});
 });

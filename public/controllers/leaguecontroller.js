@@ -6,7 +6,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	var currentTemplateTitle = $route.current.$$route.templateTitle;
 	$scope.createGamesForLeague = function(idToQuery) {
 		if(idToQuery){
-			var urlToQuery = '/leagues/' + idToQuery + '/creategames';
+			var urlToQuery = 'api/leagues/' + idToQuery + '/creategames';
 			var paramsForGames = {
 				start_date: '2018-02-28'
 			};
@@ -25,7 +25,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	$scope.queryAllLeagues = function(){
 		$scope.leagues = [];
 		$http
-		.get('/leagues', HeadersConfig.getConfig())
+		.get('api/leagues', HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
 			$scope.leagues = response.data;
 		}, 
@@ -34,7 +34,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		});		
 	};
 	$scope.deleteLeague = function(leagueIdToDelete){
-		var urlToQuery = '/leagues/'+leagueIdToDelete;
+		var urlToQuery = 'api/leagues/'+leagueIdToDelete;
 		$scope.currentLeague = {};
 		$http
 		.delete(urlToQuery, HeadersConfig.getConfig())
@@ -46,7 +46,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		});
 	};
 	$scope.updateLeague = function(leagueIdToQuery){
-		var urlToQuery = '/leagues/'+leagueIdToQuery;
+		var urlToQuery = 'api/leagues/'+leagueIdToQuery;
 		console.log('urlToQuery === ', urlToQuery);
 		var postData = $scope.leagueToSave;
 		console.log('postData', postData);
@@ -62,7 +62,7 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	}
 	$scope.queryOneLeague = function(leagueIdToQuery, actionType){
 		
-		var urlToQuery = '/leagues/'+leagueIdToQuery;
+		var urlToQuery = 'api/leagues/'+leagueIdToQuery;
 		$scope.currentLeague = {};
 		$http
 		.get(urlToQuery, HeadersConfig.getConfig())
@@ -77,13 +77,13 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 	$scope.saveLeague = function(leaguePostData){
 		console.log('postData', leaguePostData);
 		$scope.leagueToSave = angular.copy(leaguePostData);
-		$http.post('/leagues', $.param($scope.leagueToSave), HeadersConfig.getConfig())
+		$http.post('api/leagues', $.param($scope.leagueToSave), HeadersConfig.getConfig())
 		.then(
 			function success(data){
 				$location.path('/league');
 			},
 			function failed(err){
-		
+				console.log('errr ', err);
 			}
 		);
 	};
