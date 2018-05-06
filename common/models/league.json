@@ -1,0 +1,46 @@
+{
+  "name": "League",
+  "plural": "Leagues",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "number_of_teams": {
+      "type": "number"
+    },
+    "difficulty_level": {
+      "type": "string"
+    },
+    "week_day": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "league_name": {
+      "type": "string",
+      "required": true
+    },
+    "league_manager": {
+      "type": "string"
+    },
+    "team_price": {
+      "type": "string"
+    },
+    "individual_price": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
