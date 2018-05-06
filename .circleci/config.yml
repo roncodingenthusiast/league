@@ -31,7 +31,9 @@ jobs:
           - v1-dependencies-
       - run:
           name: npm-install
-          command: npm install
+          command: |
+            npm install
+            npm install install -g cross-env
 
       - save_cache:
           paths:
