@@ -38,4 +38,4 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    command: node server.js
+    command: bash -c "node server/bootscript-db.js && node ."

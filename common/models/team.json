@@ -1,0 +1,32 @@
+{
+  "name": "Team",
+  "plural": "Teams",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "team_name": {
+      "type": "string",
+      "required": true
+    },
+    "skill_level": {
+      "type": "string"
+    },
+    "league_id": {
+      "type": "string",
+      "required": true
+    },
+    "jersey_color": {
+      "type": "string"
+    },
+    "captain_email": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

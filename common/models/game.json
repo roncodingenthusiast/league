@@ -1,0 +1,46 @@
+{
+  "name": "Game",
+  "plural": "Games",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "game_date": {
+      "type": "date",
+      "required": true
+    },
+    "home_team_id": {
+      "type": "string",
+      "required": true
+    },
+    "away_team_id": {
+      "type": "string",
+      "required": true
+    },
+    "home_team_score": {
+      "type": "number"
+    },
+    "away_team_score": {
+      "type": "number"
+    },
+    "week_round": {
+      "type": "number"
+    },
+    "league_id": {
+      "type": "string",
+      "required": true
+    },
+    "field": {
+      "type": "string"
+    },
+    "referree_id": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

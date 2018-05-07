@@ -6,6 +6,7 @@
 	"excludeFiles": [
 		"node_modules/*",
 		".git/*",
-		".build/*"
+		".build/*",
+		"public/lib/*"
 	]
 }

@@ -23,6 +23,9 @@ jobs:
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
+      - run:
+          name: update-cross-env
+          command: 'sudo npm install -g cross-env'            
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -31,7 +34,8 @@ jobs:
           - v1-dependencies-
       - run:
           name: npm-install
-          command: npm install
+          command: |
+            npm install
 
       - save_cache:
           paths:
