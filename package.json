@@ -6,12 +6,13 @@
     "jscs": "jscs .",
     "start": "node .",
     "posttest": "npm run jscs",
-    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root node_modules/.bin/jscs ."
+    "test": "cross-env NODE_ENV=test PORT=8080 DB_HOST=mysql://localhost:3306 DB_PORT=3306 DB_NAME=pro_league_manager DB_USER=root npm run jscs"
   },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
+    "jscs": "^3.0.7",
     "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.0.0",
