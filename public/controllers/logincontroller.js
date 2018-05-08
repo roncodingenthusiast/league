@@ -2,7 +2,7 @@ app.controller('loginCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
 	'AuthenticationService',
 	function($scope, $http, $location, HeadersConfig, AuthenticationService){
 		console.log('login module brah');
-		AuthenticationService.ClearCredentials();
+		//AuthenticationService.ClearCredentials();
 
 		$scope.login = function(){
 			$scope.dataLoading = false;

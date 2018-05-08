@@ -1,7 +1,3 @@
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: true }));
 var _ = require('lodash');
 var roundrobin = require('roundrobin');
 var moment = require('moment');
