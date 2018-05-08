@@ -32,7 +32,48 @@ app.service('HeadersConfig', function () {
 		}
 	};
 });
-app.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', '$timeout',
-	function($http, $cookieStore, $rootScope, $timeout){
+app.factory('AuthenticationService', ['$http', '$cookie', '$cookieStore', '$rootScope', '$timeout',
+	'HeadersConfig',
+	function ($http, $cookies, $cookieStore, $rootScope, $timeout, HeadersConfig){
+		
+		var authenticationService = {};
+		authenticationService.Register = function (credentials, callback) {
+			$http.post('/api/users', $.param(credentials), HeadersConfig.getConfig())
+				.then(function successfulRequest(response) {
+					callback(null, {
+						status: response.status,
+						data: response.data,
+						success: true
+					});
+				},
+				function failedRequest(error) {
+					callback(error);
+				});
+		};
+		authenticationService.Login = function (credentials, callback) {
+			$http.post('/api/users/login', $.param(credentials),
+			HeadersConfig.getConfig())
+			.then(function successfulRequest(response) {
+				var results = {
+					status: response.status,
+					data: response.data,
+					success: true
+				};
+				authenticationService.SetCredentials(results, callback);
+			},
+			function failedRequest(error) {
+				callback(error);
+			});
+		};
+		authenticationService.SetCredentials = function(res, cb){
 
-	}]);
+			cb(null, res);
+		};
+		authenticationService.ClearCredentials = function () {
+			$rootScope.globals = {};
+			$cookies.remove('globals');
+			$http.defaults.headers.common.Authorization = 'Basic';
+		};
+		return authenticationService;
+	}
+]);
