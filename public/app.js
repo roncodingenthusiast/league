@@ -32,16 +32,14 @@ app.service('HeadersConfig', function () {
 		}
 	};
 });
-app.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', '$timeout',
+app.factory('AuthenticationService', ['$http', '$cookie', '$cookieStore', '$rootScope', '$timeout',
 	'HeadersConfig',
-	function ($http, $cookieStore, $rootScope, $timeout, HeadersConfig){
+	function ($http, $cookies, $cookieStore, $rootScope, $timeout, HeadersConfig){
 		
 		var authenticationService = {};
 		authenticationService.Register = function (credentials, callback) {
-			console.log('credentials ', credentials);
 			$http.post('/api/users', $.param(credentials), HeadersConfig.getConfig())
 				.then(function successfulRequest(response) {
-					console.log('response ', response);
 					callback(null, {
 						status: response.status,
 						data: response.data,
@@ -49,15 +47,27 @@ app.factory('AuthenticationService', ['$http', '$cookieStore', '$rootScope', '$t
 					});
 				},
 				function failedRequest(error) {
-					console.log('here is the reason for failure', error);
 					callback(error);
 				});
 		};
-		authenticationService.Login = function (username, password, callback) {
-
+		authenticationService.Login = function (credentials, callback) {
+			$http.post('/api/users/login', $.param(credentials),
+			HeadersConfig.getConfig())
+			.then(function successfulRequest(response) {
+				var results = {
+					status: response.status,
+					data: response.data,
+					success: true
+				};
+				authenticationService.SetCredentials(results, callback);
+			},
+			function failedRequest(error) {
+				callback(error);
+			});
 		};
-		authenticationService.SetCredentials = function(){
+		authenticationService.SetCredentials = function(res, cb){
 
+			cb(null, res);
 		};
 		authenticationService.ClearCredentials = function () {
 			$rootScope.globals = {};

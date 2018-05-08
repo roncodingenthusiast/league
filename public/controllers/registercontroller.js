@@ -11,8 +11,7 @@ app.controller('registerCtrl', ['$scope', '$http', '$location', 'HeadersConfig',
                     if (loginResponse.success) {
                         $location.path('/login');
                     } else {
-                       // $scope.error = response.message;
-                        console.log('HeadersConfig ', loginResponse);
+                        $location.path('/register');
                     }
                 });
         };
