@@ -32,9 +32,9 @@ app.service('HeadersConfig', function () {
 		}
 	};
 });
-app.factory('AuthenticationService', ['$http', '$cookie', '$cookieStore', '$rootScope', '$timeout',
+app.factory('AuthenticationService', ['$http', '$cookies', '$rootScope', '$timeout',
 	'HeadersConfig',
-	function ($http, $cookies, $cookieStore, $rootScope, $timeout, HeadersConfig){
+	function ($http, $cookies, $rootScope, $timeout, HeadersConfig){
 		
 		var authenticationService = {};
 		authenticationService.Register = function (credentials, callback) {
@@ -54,11 +54,14 @@ app.factory('AuthenticationService', ['$http', '$cookie', '$cookieStore', '$root
 			$http.post('/api/users/login', $.param(credentials),
 			HeadersConfig.getConfig())
 			.then(function successfulRequest(response) {
+				
 				var results = {
 					status: response.status,
 					data: response.data,
 					success: true
 				};
+				$cookies.put('league_login', results);
+				$cookies.put('league_login_test', 'results');
 				authenticationService.SetCredentials(results, callback);
 			},
 			function failedRequest(error) {
