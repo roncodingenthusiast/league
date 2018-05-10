@@ -1,11 +1,13 @@
-"use strict";
-
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var express = require('express');
 
 var app = module.exports = loopback();
 
+app.use(loopback.token({
+  model: app.models.accessToken,
+  currentUserLiteral: 'me'
+}));
 app.start = function() {
   // start the web server
   return app.listen(function() {
