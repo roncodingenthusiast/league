@@ -16,3 +16,5 @@ app.controller('chatCtrl', ['$scope', '$http', '$location', '$cookies', 'Headers
                 });
         };
     }]);
+
+    //https://loopback.io/doc/en/lb2/Making-authenticated-requests.html
