@@ -2,8 +2,8 @@ app.controller('chatCtrl', ['$scope', '$http', '$location', '$cookies', 'Headers
     'AuthenticationService',
     function ($scope, $http, $location, $cookies, HeadersConfig, AuthenticationService) {
         $scope.user = {};
-        console.log('hello world', JSON.stringify($cookies.get('league_login'), null, 2));
-        console.log('hello world', JSON.stringify($cookies.get('league_login_test'), null, 2));
+        console.log('hello world', $cookies.get('league_login_access_token'));
+        console.log('hello world', $cookies.get('league_login_test'));
         $scope.login = function () {
             console.log($scope.email);
             console.log($scope.password);

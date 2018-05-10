@@ -60,7 +60,7 @@ app.factory('AuthenticationService', ['$http', '$cookies', '$rootScope', '$timeo
 					data: response.data,
 					success: true
 				};
-				$cookies.put('league_login', results);
+				$cookies.put('league_login_access_token', results.data.id);
 				$cookies.put('league_login_test', 'results');
 				authenticationService.SetCredentials(results, callback);
 			},
