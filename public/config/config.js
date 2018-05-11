@@ -13,7 +13,7 @@ app.config(function($routeProvider, $locationProvider){
 		controller: 'registerCtrl'
 	})
 	.when('/chat', {
-		templateUrl: './templates/chat.html',
+		templateUrl: './templates/chats/list.html',
 		controller: 'chatCtrl'
 	})
 	//league list

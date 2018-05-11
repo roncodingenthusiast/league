@@ -1,20 +1,15 @@
 var app = angular.module('leagueManagerApp', ['ngRoute', 'ngCookies']);
-app.run(['$rootScope', '$location', '$cookieStore', '$http',
-function($rootScope, $location, $cookieStore, $http){
+app.run(['$rootScope', '$location', '$cookies', '$http',
+function($rootScope, $location, $cookies, $http){
 	
-	// $rootScope.globals = $cookieStore.get('globals') || {};
-	// if($rootScope.globals.currentUser){
-	// 	$http.defaults.headers.common['Authorization'] =
-	//'Basic ' + $rootScope.globals.currentUser.authdata;
-	// }
-
-	// $rootScope.$on('$locationChangeStart', function (event, next, current) {
-    //     // redirect to login page if not logged in
-	//     if ($location.path() !== '/admin-login' &&
-	// !$rootScope.globals.currentUser) {
-    //         $location.path('/admin-login');
-    //     }
-    // });
+	$rootScope.globals = $cookies.getObject('league_token') || {};
+	console.log('$rootScope.globals ', $cookies.get('league_token') );
+	$rootScope.$on('$locationChangeStart', function (event, next, current) {
+        // redirect to login page if not logged in
+	    if ($location.path() !== '/login' && !$rootScope.globals.token) {
+            $location.path('/login');
+        }
+    });
 }]);
 app.service('HeadersConfig', function () {
 	var config = {
@@ -60,8 +55,15 @@ app.factory('AuthenticationService', ['$http', '$cookies', '$rootScope', '$timeo
 					data: response.data,
 					success: true
 				};
-				$cookies.put('league_login_access_token', results.data.id);
-				$cookies.put('league_login_test', 'results');
+				var cookiesResults = {
+					token: response.data.id,
+					userId: response.data.userId
+				};
+				var expireDate = new Date();
+				expireDate.setDate(expireDate.getDate() + 12);
+				$cookies.putObject('league_token', cookiesResults, {
+					'expires': expireDate
+				});
 				authenticationService.SetCredentials(results, callback);
 			},
 			function failedRequest(error) {
