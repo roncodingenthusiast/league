@@ -1,0 +1,46 @@
+{
+  "name": "ChatMessage",
+  "plural": "ChatMessages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "created_date": {
+      "type": "date",
+      "default": "new Date"
+    },
+    "deleted_date": {
+      "type": "date"
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "sender_id": {
+      "type": "string",
+      "required": true
+    },
+    "receiver_id": {
+      "type": "string",
+      "required": true
+    },
+    "receiver_type": {
+      "type": "string",
+      "required": true
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_deleted_by_sender": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

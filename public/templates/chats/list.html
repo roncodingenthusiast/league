@@ -1,0 +1,33 @@
+<div class="col-sm-12">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Group Chat list</h3>
+        </div>
+        <div class="col-sm-12 table-responsive center">
+            <table class="table table-striped">
+                <tr class="danger">
+                    <td>Group Chat Name</td>
+                    <td>Number of members</td>
+                    <td>Open to Join?</td>
+                    <td>Join</td>
+                    <td>Equipment</td>
+                    <td>Score</td>
+                </tr>
+                <tr ng-repeat="game in games">
+                    <td>
+                        <a href="#" target="">{{game.game_date | date: 'yyyy-MM-dd HH:mm'}}</a>
+                    </td>
+                    <td>Center East</td>
+                    <td>
+                        <a class="" href="#">{{ game.hometeam }}</a>
+                    </td>
+                    <td>
+                        <a class="" href="#" target="">{{ game.awayteam }}</a>
+                    </td>
+                    <td>Volt FC</td>
+                    <td> - </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

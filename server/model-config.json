@@ -46,5 +46,13 @@
   "League": {
     "dataSource": "mysqldb",
     "public": true
+  },
+  "ChatRoom": {
+    "dataSource": "mysqldb",
+    "public": true
+  },
+  "ChatMessage": {
+    "dataSource": "mysqldb",
+    "public": true
   }
 }
