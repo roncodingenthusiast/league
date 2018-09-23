@@ -4,12 +4,12 @@ function($rootScope, $location, $cookies, $http){
 	
 	$rootScope.globals = $cookies.getObject('league_token') || {};
 	console.log('$rootScope.globals ', $cookies.get('league_token') );
-	$rootScope.$on('$locationChangeStart', function (event, next, current) {
-        // redirect to login page if not logged in
-	    if ($location.path() !== '/login' && !$rootScope.globals.token) {
-            $location.path('/login');
-        }
-    });
+	// $rootScope.$on('$locationChangeStart', function (event, next, current) {
+    //     // redirect to login page if not logged in
+	//     if ($location.path() !== '/login' && !$rootScope.globals.token) {
+    //         $location.path('/login');
+    //     }
+    // });
 }]);
 app.service('HeadersConfig', function () {
 	var config = {

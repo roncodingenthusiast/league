@@ -67,8 +67,8 @@ app.controller('leagueCtrl', ['$scope', '$http', '$route', '$location',
 		$http
 		.get(urlToQuery, HeadersConfig.getConfig())
 		.then(function successfulRequest(response){
-			$scope.currentLeague = response.data[0];
-			$scope.leagueToSave = angular.copy(response.data[0]);
+			$scope.currentLeague = response.data;
+			$scope.leagueToSave = angular.copy(response.data);
 		}, 
 		function failedRequest(error){
 			console.log('here is the reason for failure', error);

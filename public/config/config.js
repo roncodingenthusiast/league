@@ -55,8 +55,8 @@ app.config(function($routeProvider, $locationProvider){
 	.otherwise({
 		redirecTo: '/'
 	});
-	$locationProvider.html5Mode({
-		enabled: true,
-		requireBase: false
-	});
+	// $locationProvider.html5Mode({
+	// 	enabled: true,
+	// 	requireBase: false
+	// });
 });
